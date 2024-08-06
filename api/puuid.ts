@@ -3,7 +3,7 @@ import ValorantApi from "unofficial-valorant-api";
 
 const vapi = new ValorantApi(process.env.API_KEY as string);
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function (req: VercelRequest, res: VercelResponse) {
   const { name, tag } = req.query;
 
   if (!name || !tag) {

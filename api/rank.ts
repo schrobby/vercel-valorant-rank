@@ -3,7 +3,7 @@ import ValorantApi from "unofficial-valorant-api";
 
 const vapi = new ValorantApi(process.env.API_KEY as string);
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function (req: VercelRequest, res: VercelResponse) {
   const { puuid } = req.query;
   
   if (!puuid) {
@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       highest_rank: { patched_tier: highestRank, season },
     } = rankData as any;
 
-    const message = `${rank} (${rr}rr) [${elo}] - Peak: ${highestRank} in ${season.toUpperCase()} - Last game: ${rrChange}rr`;
+    const message = `${rank} (${rr}rr) [${elo} MMR] - Peak: ${highestRank} in ${season.toUpperCase()} - Last game: ${rrChange}rr`;
     res.send(message);
   } catch (error: any) {
     res.status(500).send(`Error: ${error.message}`);
