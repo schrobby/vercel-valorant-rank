@@ -13,5 +13,8 @@
   "description": "",
   "devDependencies": {
     "vercel": "^35.2.3"
+  },
+  "dependencies": {
+    "unofficial-valorant-api": "^2.3.1-stable.0"
   }
 }
