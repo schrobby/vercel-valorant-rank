@@ -16,7 +16,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       tag: tag as string
     });
 
-    res.json({ puuid: data?.["puuid"] });
+    const { puuid, region } = data as any;
+
+    res.json({ puuid: puuid, region: region });
   } catch (error: any) {
     res.status(500).send(`Error fetching account info: ${error.message}`);
   }
